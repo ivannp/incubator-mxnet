@@ -2,11 +2,19 @@ if(NOT MSVC)
   set(UNITTEST_STATIC_LINK ON)
 endif()
 
-set(CPP_EXAMPLE_LIBS
-  ${BEGIN_WHOLE_ARCHIVE} mxnet_static ${END_WHOLE_ARCHIVE}
-  ${BEGIN_WHOLE_ARCHIVE} dmlc ${END_WHOLE_ARCHIVE}
-  ${mxnet_LINKER_LIBS}
-  )
+if(UNIX)
+  set(CPP_EXAMPLE_LIBS
+    ${BEGIN_WHOLE_ARCHIVE} mxnet_static ${END_WHOLE_ARCHIVE}
+    ${BEGIN_WHOLE_ARCHIVE} dmlc ${END_WHOLE_ARCHIVE}
+    ${mxnet_LINKER_LIBS}
+    )
+else()
+  set(CPP_EXAMPLE_LIBS
+      ${BEGIN_WHOLE_ARCHIVE} mxnet ${END_WHOLE_ARCHIVE}
+      ${BEGIN_WHOLE_ARCHIVE} dmlc ${END_WHOLE_ARCHIVE}
+      ${mxnet_LINKER_LIBS}
+      )
+endif()
 
 set(CPP_PACKAGE_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/../include/mxnet-cpp/)
 

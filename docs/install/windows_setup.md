@@ -31,6 +31,9 @@ To build and install MXNet yourself, you need the following dependencies. Instal
 7. If you don't have the Intel Math Kernel Library (MKL) installed, download and install [OpenBlas](http://sourceforge.net/projects/openblas/files/v0.2.14/).
 8. Set the environment variable ```OpenBLAS_HOME``` to point to the ```OpenBLAS``` directory that contains the ```include``` and ```lib``` directories. Typically, you can find the directory in ```C:\Program files (x86)\OpenBLAS\```.
 9. Download and install [CuDNN](https://developer.nvidia.com/cudnn). To get access to the download link, register as an NVIDIA community user.
+10. If you are planning to build the CPP_PACKAGE (```USE_CPP_PACKAGE=ON```), then add to your ```PATH``` the paths to all DLLs installed in the previous steps. For MKL, add
+the path containing the dlls (note, it's a different path than in 7) ```C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.0.124\windows\redist\intel64_win\mkl```.
+For opencv, add ```C:\utils\opencv\build\x64\vc14\bin``` to your path.
 
 After you have installed all of the required dependencies, build the MXNet source code:
 
